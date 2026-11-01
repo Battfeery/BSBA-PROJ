@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BattFEEry - Powerbank Rental</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Auth Container (Sign Up) -->
+    <div class="container" id="authContainer">
+        <!-- Left Side: Sign Up Form -->
+        <div class="form-container">
+            <form id="signupForm">
+                <h1>Create Account</h1>
+                <p class="subtitle">Register to rent a BattFEEry power bank</p>
+                
+                <input type="text" id="fullName" name="fullName" placeholder="Full Name" required />
+                <input type="tel" id="contactNo" name="contactNo" placeholder="Contact No. (e.g. 09XX XXX XXXX)" required />
+                <input type="email" id="schoolEmail" name="schoolEmail" placeholder="MCU School Email" required />
+                <input type="text" id="idNo" name="idNo" placeholder="Student / Employee No." required />
+                
+                <div class="radio-group">
+                    <span class="label-text">Classification:</span>
+                    <label>
+                        <input type="radio" name="role" value="student" required> Student
+                    </label>
+                    <label>
+                        <input type="radio" name="role" value="employee" required> Employee
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">
+                        I agree to the <a href="#" id="termsLink">Terms and Conditions</a>, and acknowledge the penalties for unreturned power banks.
+                    </label>
+                </div>
+                
+                <button type="submit" class="primary-btn">Register Account</button>
+            </form>
+        </div>
+
+        <!-- Right Side: Branding -->
+        <div class="overlay-container">
+           <!-- Kanang Bahagi: Branding -->
+        <div class="overlay-container">
+            <div class="overlay-panel">
+                
+                <!-- 1. Ito ang image sa itaas -->
+                <img src="logo.jpg" alt="BattFEEry Icon" class="top-logo">
+                
+                <!-- 2. Ito ang text sa ilalim ng image -->
+                <p class="tagline">CHARGE • GO • DO MORE</p>
+                
+                <p class="description">Never run out of battery while on campus. Sign up now and rent a portable power bank instantly via QR code!</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Container (Hidden by default) -->
+    <div class="dashboard-container" id="dashboardContainer" style="display: none;">
+        <div class="dashboard-header">
+            <h2>Welcome, <span id="userNameDisplay">Student</span>!</h2>
+            <p>Select an available power bank to generate a payment QR code.</p>
+        </div>
+        
+        <div class="powerbank-grid" id="powerbankGrid">
+            <!-- Power banks will be generated here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- QR Code Modal (Hidden by default) -->
+    <div class="modal-overlay" id="qrModal" style="display: none;">
+        <div class="modal-content">
+            <h2 id="modalTitle">Scan to Pay & Unlock</h2>
+            <p id="modalSubtitle">Power Bank: PB-01</p>
+            
+            <div class="qr-placeholder">
+    <!-- Ginagamit na ngayon ang InstaPay QR -->
+    <img src="qr.jpg" alt="InstaPay QR Code" id="qrImage">
+</div>
+            
+            <p class="price-text">Rate: ₱30 for 1st hour</p>
+            <p class="warning-text">Make sure to return it to avoid the ₱10/30mins penalty.</p>
+            
+            
+            <button class="close-btn" id="closeModalBtn">Cancel / Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
